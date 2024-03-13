@@ -28,7 +28,7 @@ public class StudentService {
     }
 
     public Optional<Student> findStudentWithHighestGpa() {
-        Student highestGPA = studentRepository.findHighestGPA();    
+        Student highestGPA = studentRepository.findFirstByOrderByGpaDesc();    
         return Optional.ofNullable(highestGPA);
     }
 
