@@ -33,10 +33,12 @@ public class StudentService {
     }
 
     public String joinStudentNames() {
+        // Source
+        // https://dip-mazumder.medium.com/stringbuilder-vs-string-in-java-a-guide-for-optimal-memory-usage-4a284d8243ea#:~:text=%60StringBuilder%60%20outperforms%20%60String%60,modification%2C%20and%20large%20string%20construction.
         List<Student> students = studentRepository.findAll();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Student student : students) {
-            result += student.getName() + ", ";
+            result.append(student.getName()).append(", ");
         }
         return result.substring(0, result.length() - 2);
     }
