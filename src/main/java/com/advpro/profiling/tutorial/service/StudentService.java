@@ -26,18 +26,10 @@ public class StudentService {
     public List<StudentCourse> getAllStudentsWithCourses() {
         return studentCourseRepository.findAll();
     }
-    
+
     public Optional<Student> findStudentWithHighestGpa() {
-        List<Student> students = studentRepository.findAll();
-        Student highestGpaStudent = null;
-        double highestGpa = 0.0;
-        for (Student student : students) {
-            if (student.getGpa() > highestGpa) {
-                highestGpa = student.getGpa();
-                highestGpaStudent = student;
-            }
-        }
-        return Optional.ofNullable(highestGpaStudent);
+        Student highestGPA = studentRepository.findHighestGPA();    
+        return Optional.ofNullable(highestGPA);
     }
 
     public String joinStudentNames() {
