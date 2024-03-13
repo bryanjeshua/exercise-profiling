@@ -26,7 +26,7 @@ public class StudentService {
     public List<StudentCourse> getAllStudentsWithCourses() {
         return studentCourseRepository.findAll();
     }
-
+    
     public Optional<Student> findStudentWithHighestGpa() {
         List<Student> students = studentRepository.findAll();
         Student highestGpaStudent = null;
